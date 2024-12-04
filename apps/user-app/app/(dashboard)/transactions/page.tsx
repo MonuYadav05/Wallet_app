@@ -5,9 +5,13 @@ import { getServerSession } from "next-auth"
 import prisma from "@repo/db/client";
 import { authOptions } from "../../lib/auth";
 import TransactionDetail from "../../../components/TransactionCard";
+import { redirect } from "next/navigation";
 
 async function getTransaction() {
   const session = await getServerSession(authOptions);
+  if (!session) {
+    redirect('/api/auth/signin'); // Redirect to the signin page
+}
   const userid = session?.user?.id;
   // console.log('User ID:', userid); 
   const transactions = await prisma.p2pTransfer.findMany({

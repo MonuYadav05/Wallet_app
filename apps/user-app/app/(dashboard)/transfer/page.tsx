@@ -4,9 +4,13 @@ import { BalanceCard } from "../../../components/BalanceCard";
 import { OnRampTransactions } from "../../../components/OnRampTransactions";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/auth";
+import { redirect } from 'next/navigation';
 
 async function getBalance() {
     const session = await getServerSession(authOptions);
+    if (!session) {
+        redirect('/api/auth/signin'); // Redirect to the signin page
+    }
     const balance = await prisma.balance.findFirst({
         where: {
             userId: Number(session?.user?.id)
