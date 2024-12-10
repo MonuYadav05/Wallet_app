@@ -24,7 +24,7 @@ export const MobileMenu = () => {
       ease: 'easeInOut',
       type: 'spring',
       damping: 10,}}>
-        <div className="flex md:hidden flex-col w-screen item-center text-center justify-center ml-10 pt-2" onClick={() => setIsMenuOpen(!menuOpen) } > <Mobilemenu /> </div>
+        <div className="flex md:hidden flex-col w-screen item-center text-center justify-center pl-7 pt-2" onClick={() => setIsMenuOpen(!menuOpen) } > <Mobilemenu /> </div>
         </motion.div>
 }
 
