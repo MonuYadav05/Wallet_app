@@ -1,5 +1,6 @@
 "use client"
 
+import { motion } from "framer-motion"
 import { useSession } from "next-auth/react"
 
 type Transaction={
@@ -17,6 +18,14 @@ export default function TransactionDetail({transactions , userId}:{
    
     
     return (
+        <motion.div
+        initial={{ y: -80, opacity: 0.3 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 0.5,
+          ease: 'easeInOut',
+          type: 'spring',
+          damping: 10,}}> 
         <div className="m-3">
            <div className="pt-2 ">
         {transactions.map(t => <div key={t.id} className="flex my-4 justify-between">
@@ -37,5 +46,5 @@ export default function TransactionDetail({transactions , userId}:{
         </div>)}
     </div>
         </div>
-    )
+        </motion.div>)
 }   

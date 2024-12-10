@@ -10,7 +10,7 @@ import { redirect } from "next/navigation";
 async function getTransaction() {
   const session = await getServerSession(authOptions);
   if (!session) {
-    redirect('/api/auth/signin'); // Redirect to the signin page
+    redirect('/signin'); // Redirect to the signin page
 }
   const userid = session?.user?.id;
   // console.log('User ID:', userid); 

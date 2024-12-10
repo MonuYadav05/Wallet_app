@@ -15,7 +15,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
       router.replace("/signin");
     }
     if(status === "authenticated" ){
-      router.push("/dashboard")
+      router.push("/transfer")
     }
   }, [status, router]);
 

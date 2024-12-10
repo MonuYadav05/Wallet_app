@@ -8,6 +8,7 @@
   "exports": {
     "./balance": "./src/hooks/useBalance.ts",
     "./useSigninInfo" : "./src/hooks/useSigninInfo.ts",
-    "./useSetSigninInfo" : "./src/hooks/useSigninInfo.ts"
+    "./useSetSigninInfo" : "./src/hooks/useSigninInfo.ts",
+    "./menuOpenAtom" : "./src/atoms/menuOpen.ts"
   }
 }

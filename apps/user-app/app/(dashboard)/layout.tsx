@@ -1,13 +1,30 @@
+"use client";
+import { MobileMenu } from "../../components/MobileMenu";
 import { SidebarItem } from "../../components/SidebarItem";
+
+import { menuOpenAtom } from "@repo/store/menuOpenAtom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import {motion} from "framer-motion";
 
 export default function Layout({
   children,
 }: {
   children: React.ReactNode;
 }): JSX.Element {
+  const menuOpen = useRecoilValue(menuOpenAtom);
   return (
-    <div className="flex">
-        <div className="w-72 border-r border-slate-300 min-h-screen mr-4 pt-28">
+    <motion.div 
+    initial={{ x: -80, opacity: 0.3 }}
+    animate={{ x: 0, opacity: 1 }}
+    transition={{
+      duration: 0.5,
+      ease: 'easeInOut',
+      type: 'spring',
+      damping: 10,}}
+    >
+    <div className="md:flex">
+      <MobileMenu/>
+        <div className="w-screen md:w-72 border-r hidden md:block border-slate-300 min-h-screen mr-4 pt-28">
             <div>
                 <SidebarItem href={"/dashboard"} icon={<HomeIcon />} title="Home" />
                 <SidebarItem href={"/transfer"} icon={<TransferIcon />} title="Transfer" />
@@ -15,11 +32,35 @@ export default function Layout({
                 <SidebarItem href={"/p2p"} icon={<P2PTransferIcon />} title="P2P Transfer" />
             </div>
         </div >
+        <motion.div 
+         initial={{ x: -80, opacity: 0.3 }}
+         animate={{ x: 0, opacity: 1 }}
+         transition={{
+           duration: 0.5,
+           ease: 'easeInOut',
+           type: 'spring',
+           damping: 10,}}>
+        {menuOpen &&  <div className="w-screen  border-r md:hidden border-slate-300">
+           <div className="flex flex-col items-start justify-center pt-2 mx-auto">
+           <div className=" flex flex-col items-start justify-center pt-2 mx-auto">
+                <SidebarItem href={"/dashboard"} icon={<HomeIcon />} title="Home" />
+                <SidebarItem href={"/transfer"} icon={<TransferIcon />} title="Transfer" />
+                <SidebarItem href={"/transactions"} icon={<TransactionsIcon />} title="Transactions" />
+                <SidebarItem href={"/p2p"} icon={<P2PTransferIcon />} title="P2P Transfer" />
+                <SidebarItem href={"/"} icon={<LogoutIcon />} title="Logout" />
+
+            </div>
+           </div>
+        </div >}
+        </motion.div>
+       
+       
         <div className="flex-grow">
         {children}
         </div>
           
     </div>
+    </motion.div>
   );
 }
 
@@ -40,6 +81,12 @@ function TransactionsIcon() {
     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
   </svg>
   
+}
+function LogoutIcon(){
+  return <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+</svg>
+
 }
 
 function P2PTransferIcon() {

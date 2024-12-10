@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import {motion} from "framer-motion";
 
+
 export const OtpPage = ({ realOtp }: { realOtp: number }) => {
   const router = useRouter();
   const [otp, setOtp] = useState("");
@@ -45,7 +46,7 @@ export const OtpPage = ({ realOtp }: { realOtp: number }) => {
     <div className="border-2 border-slate-500 rounded-md p-10 flex flex-col items-center justify-center">
       <div className="flex flex-col gap-5 items-center justify-center">
         <h1 className="font-extrabold text-[#0074DE] text-3xl">payTM Wallet</h1>
-        <h2 className="font-semibold text-xl">SignUp</h2>
+        <h2 className="font-semibold text-xl">New User</h2>
         <div className="text-xl relative">
           <input
             onChange={(e) => setOtp(e.target.value)}

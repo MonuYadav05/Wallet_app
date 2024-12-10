@@ -4,7 +4,8 @@ import { Login } from "../../../components/Login";
 
 export default async function login() {
     return (
-        <div className="mt-52">
+        <div className="md:w-screen mx-3 ms:mx-0 h-screen">
+            
             <Center>
 
             <Login/>

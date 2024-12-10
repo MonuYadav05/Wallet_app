@@ -23,10 +23,15 @@ const SignIn = () => {
       ease: 'easeInOut',
       type: 'keyframes',
       damping: 0,}}>
+        <div className="text-center ">
+                Dummy Log in
+                <h1> phone-1111111111</h1>
+                <h1> password - alice</h1>
+            </div>
     <div className='border-2 border-slate-500 rounded-md p-10 flex flex-col items-center justify-center'> 
          <div className='flex flex-col gap-5 items-center justify-center'>
             <h1 className='font-extrabold text-[#0074DE] text-3xl'>payTM Wallet</h1>
-            <h2 className='font-semibold text-xl'>Log in</h2>
+            <h2 className='font-semibold text-xl'>Sign in</h2>
             <div className=' text-xl relative'>
                 <div className='absolute z-10  top-0 left-0 border-r-2 bg-slate-300 px-2 rounded-md text-md bottom-0 flex items-center w-12 justify-center'>{" "}+91</div>
                 <input onChange={(e)=>{

@@ -8,7 +8,7 @@ import { SetPass } from '../../../components/SetPass';
 export default async function setPass({params}:{params:{number:string}}) {
 
   return (
-    <div className='max-h-screen w-screen my-48'> 
+    <div className='md:w-screen mx-3 ms:mx-0 h-screen'> 
         <Center>
         <SetPass />
         </Center>

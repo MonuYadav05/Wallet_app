@@ -5,6 +5,7 @@ import { Select } from "@repo/ui/select";
 import { useState } from "react";
 import { TextInput } from "@repo/ui/textinput";
 import { createOnRampTransaction } from "../app/lib/actions/createOnrampTransaction";
+import { motion } from "framer-motion";
 
 const SUPPORTED_BANKS = [{
     name: "HDFC Bank",
@@ -21,7 +22,15 @@ export const AddMoney = () => {
     const [value, setValue] = useState(0)
 
     
-    return <Card title="Add Money">
+    return <motion.div
+    initial={{ y: -80, opacity: 0.3 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{
+      duration: 0.5,
+      ease: 'easeInOut',
+      type: 'spring',
+      damping: 10,}}>
+ <Card title="Add Money">
     <div className="w-full">
         <TextInput label={"Amount"} placeholder={"Amount"} onChange={(val) => {
             setValue(Number(val))
@@ -46,4 +55,6 @@ export const AddMoney = () => {
         </div>
     </div>
 </Card>
+        </motion.div>
+   
 }

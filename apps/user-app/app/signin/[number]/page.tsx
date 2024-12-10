@@ -23,7 +23,7 @@ export default async function Otp({params}:{params:{number:string}}) {
         return <div>OTP expired</div>
     }
   return (
-    <div className='max-h-screen my-48'> 
+    <div className='md:w-screen mx-3 ms:mx-0 h-screen'> 
         <Center>
         <OtpPage realOtp={otp?.otp}/>
         </Center>
