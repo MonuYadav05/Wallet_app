@@ -1,5 +1,6 @@
 "use client";
 
+import { div } from "framer-motion/client";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -20,7 +21,10 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
   // Show a loading screen while checking the session
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <div className="flex justify-center items-center h-screen min-w-screen">
+    <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-28 w-28 text-center"></div>
+
+    </div>
   }
 
   // If authenticated, render the children
