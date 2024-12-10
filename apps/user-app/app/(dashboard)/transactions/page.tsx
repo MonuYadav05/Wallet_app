@@ -51,7 +51,7 @@ export default async function Transaction(){
     )
     
     return (
-        <div className="m-8 p-6 ">
+        <div className="md:m-8 m-2 md:p-6 p-3 ">
             <Card title="Transactions">
            <TransactionDetail  transactions={transactions} userId={userid} />
             </Card>

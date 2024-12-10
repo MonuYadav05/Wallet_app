@@ -26,7 +26,7 @@ export default function TransactionDetail({transactions , userId}:{
           ease: 'easeInOut',
           type: 'spring',
           damping: 10,}}> 
-        <div className="m-3">
+        <div className="">
            <div className="pt-2 ">
         {transactions.map(t => <div key={t.id} className="flex my-4 justify-between">
             <div>
