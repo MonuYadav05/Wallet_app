@@ -13,6 +13,7 @@ export function AppbarClient() {
         await signOut()
         router.push("/api/auth/signin")
       }} user={session.data?.user} />
+      
    </div>
   );
 }
