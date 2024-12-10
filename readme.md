@@ -23,7 +23,7 @@ Bank Webhook App: Processes webhook requests from banks for transaction updates.
 Merchant App: Designed for merchants to manage their wallet transactions.
 
 
-
+Responsive Design: The application is fully responsive can use on both dekstop and mobile site.
 
 
 Key Features:
