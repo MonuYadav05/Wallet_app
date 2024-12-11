@@ -1,19 +1,35 @@
-- Clone the repo
+PayTM Wallet Clone
+Live Link- https://wallet-app-user-app-five.vercel.app
 
-```jsx
-git clone https://github.com/MonuYadav05/Wallet_app.git
 
-- npm install
-- Run postgres either locally or on the cloud (neon.tech)
 
-```jsx
-docker run  -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
-```
 
-- Copy over all .env.example files to .env
-- Update .env files everywhere with the right db url
-- Go to `packages/db`
-    - npx prisma migrate dev
-    - npx prisma db seed
-- Go to `apps/user-app` , run `npm run dev`
-- Try logging in using phone - 1111111111 , password - alice (See `seed.ts`)
+ 
+Developed a scalable web application replicating a digital wallet system using
+
+
+tech Stack- Next.js, Turborepo, PostgreSQL, Prisma, NextAuth, Recoil, and Express.js.
+
+
+
+
+
+The system consists of three integrated apps:
+
+User App: Enables users to log in, sign up, add money from bank accounts, and perform peer-to-peer (P2P) transactions.
+
+Bank Webhook App: Processes webhook requests from banks for transaction updates.
+
+Merchant App: Designed for merchants to manage their wallet transactions.
+
+
+Responsive Design: The application is fully responsive can use on both dekstop and mobile site.
+
+
+Key Features:
+Architected a modular codebase using Turborepo.
+
+Established CI/CD pipelines to automate testing and deployment.
+
+Fully containerized the application using Docker for seamless deployment.
+
