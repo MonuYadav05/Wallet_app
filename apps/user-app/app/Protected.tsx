@@ -2,8 +2,9 @@
 
 import { div } from "framer-motion/client";
 import { useSession } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname} from "next/navigation";
 import { useEffect } from "react";
+import { useRouter } from "nextjs-toploader/app";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { data: session, status } = useSession();
@@ -14,7 +15,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
     if (status === "unauthenticated" && !pathname.startsWith("/signin")) {
       router.replace("/signin");
     }
-    if(status === "authenticated" ){
+    if(status === "authenticated" && pathname.startsWith("/signin")){
       router.push("/transfer")
     }
   }, [status, router]);

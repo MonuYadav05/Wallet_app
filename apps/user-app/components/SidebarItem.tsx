@@ -1,8 +1,8 @@
 "use client"
 import { signOut } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React from "react";
-
+import { useRouter } from "nextjs-toploader/app";
 interface SidebarItemProps {
     href: string;
     title: string;

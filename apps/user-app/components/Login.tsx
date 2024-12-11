@@ -2,7 +2,7 @@
 
 import { useSigninInfo } from "@repo/store/useSigninInfo";
 import { Button } from "@repo/ui/button";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import {useState, useEffect} from "react";
 import { useSetSigninInfo } from "@repo/store/useSigninInfo";
 import { TextInput } from "@repo/ui/textinput";
@@ -42,7 +42,7 @@ const signinInfo = useSigninInfo();
     toast.dismiss(loadId);
     console.log(res);
     if (!res?.error) {
-        // router.push('/dashboard')
+        router.push('/dashboard')
         toast.success('Signed In');
     }else {
         if (res.status === 401) {

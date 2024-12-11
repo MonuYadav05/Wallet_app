@@ -34,6 +34,7 @@ export default function RootLayout({
           showSpinner={true}
           height={4}
           color="#0074DE"
+          crawl={true}
         />
             {children}
             

@@ -6,7 +6,7 @@ import { useRef } from "react";
 import {useSetSigninInfo} from '@repo/store/useSigninInfo';
 import { handleSendOtp } from '../app/lib/actions/sendOtp';
 import { toast } from 'sonner';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'nextjs-toploader/app';
 import {motion} from "framer-motion";
 
 const SignIn = () => {
@@ -43,13 +43,19 @@ const SignIn = () => {
        
          
        <div className='mt-4'>
-       <Button onClick={() => {
+       <Button onClick={async() => {
             if(phone.current.length!==10){
                 toast.error("Invalid phone number");
                 return ;
             }
-            handleSendOtp({phone:phone.current})
-
+            const res = await handleSendOtp({phone:phone.current})
+           console.log(res)
+            if(res == "/signin/login"){
+                router.push(`${res}`)
+            }
+            else{
+                router.push(`${res}`)
+            }
         }}>
             Next
         </Button>

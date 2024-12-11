@@ -66,14 +66,16 @@ export async function handleSendOtp({ phone }: { phone: string }) {
         },
     })
     if(user){
-        redirect(`/signin/login`);
+      return "/signin/login"
+        // redirect(`/signin/login`);
     }
   // Send SMS
   const smsSent = await sendSMS(phone, `Your OTP for Login in payTM Wallet is ${otp}`);
 
   // Redirect only after successful OTP generation
   if (smsSent) {
-    redirect(`/signin/${phone}`);
+    return `/signin/${phone}`;
+    // redirect(`/signin/${phone}`);
   } else {
     return { message: "Failed to send OTP" };
   }
